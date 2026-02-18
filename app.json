@@ -1,0 +1,51 @@
+{
+  "app": {
+    "appId": "528034546581581882",
+    "appName": "SmartDoor",
+    "appTitle": "SmartDoor - Hệ Thống Điều Khiển Cửa",
+    "appDescription": "Ứng dụng điều khiển cửa garage thông minh, tự động hóa lịch hẹn giờ, theo dõi lịch sử hoạt động",
+    "appIcon": "https://qzhxidaqvlxwdyungcyr.supabase.co/storage/v1/object/sign/images/logo%20smart%20door%20v1.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82YmJlZjUxNS0zZDVmLTQwYzgtODI5Yy0wNzRmMDNjZmU3YTYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvbG9nbyBzbWFydCBkb29yIHYxLnBuZyIsImlhdCI6MTc3MTQ0MzI2MywiZXhwIjoxOTI5MTIzMjYzfQ.TlUWW42mEgN5R00kaGUCJ-jsguh3HTnBKycCz3Gybbc",
+    "appBg": "#0d1117",
+    "entryPage": "/",
+    "minPlatformVersion": "1.0.0",
+    "requiredPermissions": [
+      "storage",
+      "network"
+    ],
+    "compactLayout": false,
+    "alwaysShowBar": true,
+    "thumbUrl": "https://qzhxidaqvlxwdyungcyr.supabase.co/storage/v1/object/sign/images/logo%20smart%20door%20v1.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82YmJlZjUxNS0zZDVmLTQwYzgtODI5Yy0wNzRmMDNjZmU3YTYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvbG9nbyBzbWFydCBkb29yIHYxLnBuZyIsImlhdCI6MTc3MTQ0MzI2MywiZXhwIjoxOTI5MTIzMjYzfQ.TlUWW42mEgN5R00kaGUCJ-jsguh3HTnBKycCz3Gybbc",
+    "headerHeight": 48,
+    "minHeightAppBar": 60,
+    "maxHeightAppBar": 120,
+    "statusBar": {
+      "backgroundColor": "#0d1117",
+      "textColor": "white"
+    }
+  },
+  "pages": [
+    {
+      "page": "/",
+      "title": "Trang Chủ"
+    },
+    {
+      "page": "/schedule",
+      "title": "Hẹn Giờ"
+    },
+    {
+      "page": "/history",
+      "title": "Lịch Sử"
+    },
+    {
+      "page": "/profile",
+      "title": "Hồ Sơ"
+    }
+  ],
+  "serverDomain": [
+    "https://nguyenthanhvan.software"
+  ],
+  "connectSocketDomain": [],
+  "navigateWhiteList": [
+    "https://nguyenthanhvan.software"
+  ]
+}

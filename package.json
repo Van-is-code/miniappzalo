@@ -1,0 +1,38 @@
+{
+  "name": "smartdoor-zalo-mini-app",
+  "version": "1.0.0",
+  "description": "SmartDoor - Hệ Thống Điều Khiển Cửa Zalo Mini App",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8080 -c-1",
+    "build": "echo 'No build needed for static app'",
+    "deploy:vercel": "vercel",
+    "deploy:github": "git push origin main",
+    "test": "echo 'Please test manually on Zalo device'"
+  },
+  "keywords": [
+    "zalo",
+    "mini-app",
+    "smart-home",
+    "door-control",
+    "automation",
+    "iot"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "vercel": "^28.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/smartdoor-zalo-mini-app"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/smartdoor-zalo-mini-app/issues"
+  },
+  "homepage": "https://github.com/yourusername/smartdoor-zalo-mini-app#readme"
+}
