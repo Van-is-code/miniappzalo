@@ -81,7 +81,7 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions
 
 ### Backend Required Endpoints
 ```
-POST /login
+POST /auth/login
   - Email & Password authentication
   - Returns: { token, user }
 

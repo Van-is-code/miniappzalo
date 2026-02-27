@@ -1007,8 +1007,25 @@
 // API CONFIGURATION
 // ═════════════════════════════════════════════════════════════
 const API_BASE = "https://nguyenthanhvan.software/rolldingdoor/api";
+const AUTH_BASE = API_BASE.endsWith('/api') ? API_BASE.slice(0, -4) : API_BASE;
 let authToken = localStorage.getItem('authToken') || null;
 let currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+
+async function parseApiResponse(response){
+  const contentType = (response.headers.get('content-type') || '').toLowerCase();
+  const rawText = await response.text();
+
+  if(contentType.includes('application/json')){
+    try {
+      return { data: JSON.parse(rawText), rawText, isJson: true, isHtml: false };
+    } catch {
+      return { data: null, rawText, isJson: false, isHtml: false };
+    }
+  }
+
+  const isHtml = rawText.trim().startsWith('<!DOCTYPE') || rawText.trim().startsWith('<html');
+  return { data: null, rawText, isJson: false, isHtml };
+}
 
 // ═════════════════════════════════════════════════════════════
 // CLOCK
@@ -1054,13 +1071,13 @@ async function doLogin(){
   btn.classList.add('loading');
 
   try {
-    const response = await fetch(`${API_BASE}/login`, {
+    const response = await fetch(`${AUTH_BASE}/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password: pass })
     });
 
-    const data = await response.json();
+    const { data, isJson, isHtml } = await parseApiResponse(response);
     
     if(response.ok && data.token){
       authToken = data.token;
@@ -1075,7 +1092,13 @@ async function doLogin(){
       }, 1500);
     } else {
       btn.classList.remove('loading');
-      showError(data.message || 'Tên đăng nhập hoặc mật khẩu không đúng');
+      if(isHtml){
+        showError('API login trả về HTML, vui lòng kiểm tra đúng endpoint backend (/auth/login)');
+      } else if(!isJson){
+        showError('Phản hồi từ server không đúng định dạng JSON');
+      } else {
+        showError(data?.message || 'Tên đăng nhập hoặc mật khẩu không đúng');
+      }
       document.querySelector('.form-card').style.animation = 'none';
       document.querySelector('.form-card').offsetHeight;
       document.querySelector('.form-card').style.animation = 'shake .4s';
